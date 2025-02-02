@@ -3,23 +3,23 @@
 [ext_resource type="Script" path="res://scripts/tomato.gd" id="1_kugkh"]
 [ext_resource type="Texture2D" uid="uid://bi3v63bbeijnf" path="res://assets/Crop_Spritesheet.png" id="2_38mb7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_thkc3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkrri"]
 atlas = ExtResource("2_38mb7")
 region = Rect2(80, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0egyf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ug7l4"]
 atlas = ExtResource("2_38mb7")
 region = Rect2(64, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j68xw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_60w5y"]
 atlas = ExtResource("2_38mb7")
 region = Rect2(48, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v7ke8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwuj8"]
 atlas = ExtResource("2_38mb7")
 region = Rect2(32, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7nwm5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7uw8"]
 atlas = ExtResource("2_38mb7")
 region = Rect2(16, 32, 16, 16)
 
@@ -27,19 +27,19 @@ region = Rect2(16, 32, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_thkc3")
+"texture": SubResource("AtlasTexture_lkrri")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0egyf")
+"texture": SubResource("AtlasTexture_ug7l4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j68xw")
+"texture": SubResource("AtlasTexture_60w5y")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v7ke8")
+"texture": SubResource("AtlasTexture_gwuj8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7nwm5")
+"texture": SubResource("AtlasTexture_o7uw8")
 }],
 "loop": false,
 "name": &"tomate_crescendo",

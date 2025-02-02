@@ -12,6 +12,5 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#print(sementes_de_tomate)
-	print("que demora")
 	pass
 	
