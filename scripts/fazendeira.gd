@@ -27,3 +27,9 @@ func _physics_process(delta: float) -> void:
 
 func _on_semente_de_tomate_body_entered(body):
 	Dados.sementes_de_tomate += 1
+
+
+
+
+func _on_semente_de_milho_body_entered(body):
+	Dados.semente_de_milho += 1

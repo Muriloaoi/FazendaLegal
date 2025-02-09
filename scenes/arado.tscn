@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://c5yw1cf2d5qah"]
+
+[ext_resource type="Script" path="res://scripts/arado.gd" id="1_g7c1c"]
+[ext_resource type="Texture2D" uid="uid://djle4rflkq32c" path="res://assets/Tiny Wonder Forest 1.0/tilemaps/summer tilemap.png" id="1_iok3x"]
+[ext_resource type="Texture2D" uid="uid://dhm0mepek3v2n" path="res://assets/Tiny Wonder Forest 1.0/tilemaps/autumn tilemap.png" id="2_32fdr"]
+[ext_resource type="Texture2D" uid="uid://wwcqyu3ins7y" path="res://assets/Tiny Wonder Forest 1.0/tilemaps/winter outside.png" id="3_bj2jf"]
+[ext_resource type="Texture2D" uid="uid://bi3v63bbeijnf" path="res://assets/Crop_Spritesheet.png" id="6_r7dse"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxf04"]
+size = Vector2(14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdc8q"]
+atlas = ExtResource("6_r7dse")
+region = Rect2(80, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hekp"]
+atlas = ExtResource("6_r7dse")
+region = Rect2(64, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7hji"]
+atlas = ExtResource("6_r7dse")
+region = Rect2(48, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i1ue"]
+atlas = ExtResource("6_r7dse")
+region = Rect2(32, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo470"]
+atlas = ExtResource("6_r7dse")
+region = Rect2(16, 144, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dj7b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdc8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hekp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7hji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i1ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo470")
+}],
+"loop": false,
+"name": &"milho_crescendo",
+"speed": 1.0
+}]
+
+[node name="arado" type="Area2D"]
+script = ExtResource("1_g7c1c")
+
+[node name="col_arado" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uxf04")
+
+[node name="s_arado_molhado" type="Sprite2D" parent="."]
+modulate = Color(0.544974, 0.544974, 0.544974, 1)
+texture = ExtResource("1_iok3x")
+region_enabled = true
+region_rect = Rect2(48, 160, 16, 16)
+
+[node name="s_arado_molhado2" type="Sprite2D" parent="s_arado_molhado"]
+modulate = Color(0.645925, 0.353547, 0.295586, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_32fdr")
+region_enabled = true
+region_rect = Rect2(48, 160, 16, 16)
+
+[node name="s_arado_molhado3" type="Sprite2D" parent="s_arado_molhado/s_arado_molhado2"]
+modulate = Color(1, 1, 1, 0.372549)
+scale = Vector2(1.34849, 1.34849)
+texture = ExtResource("3_bj2jf")
+region_enabled = true
+region_rect = Rect2(32, 224, 16, 16)
+
+[node name="s_arado_seco" type="Sprite2D" parent="."]
+texture = ExtResource("1_iok3x")
+region_enabled = true
+region_rect = Rect2(48, 160, 16, 16)
+
+[node name="anim_milho2" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_dj7b3")
+animation = &"milho_crescendo"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

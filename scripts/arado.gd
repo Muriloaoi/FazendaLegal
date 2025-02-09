@@ -3,11 +3,13 @@ extends Area2D
 var area_arada = "nao"
 var plantado = false
 var cresceu = "nao"
-@onready var tomate = load("res://tomato.tscn").instantiate().duplicate()
+var milho_plantado
+@onready var tomate = load("res://scenes/tomato.tscn").instantiate().duplicate()
 
 func _ready():
 	add_child(tomate)
 	get_node("tomato").get_node("tomate/anim_tomato").animation_finished.connect(_on_anim_tomato_animation_finished)
+	$anim_milho2.hide()
 	pass
 
 func _process(delta):
@@ -30,6 +32,21 @@ func _process(delta):
 			cresceu = "nao"
 			plantado = false
 			
+	if area_arada == "sim" and Dados.semente_de_milho >= 1:
+		if Input.is_action_just_pressed("ui_accept") and not plantado:
+			Dados.semente_de_milho -= 1
+			$anim_milho2.show()
+			$anim_milho2.play("milho_crescendo")
+			plantado = true
+			
+	if cresceu == "sim":
+		if area_arada == "sim" and Input.is_action_just_pressed("acao"):
+			$anim_milho2.hide()
+			$anim_milho2.stop()
+			cresceu = "nao"
+			plantado = false
+
+
 
 func _on_body_entered(body):
 	area_arada = "sim"
@@ -42,3 +59,5 @@ func _on_body_exited(body):
 func _on_anim_tomato_animation_finished():
 	cresceu = "sim"
 	
+func _on_anim_milho_animation_finished():
+	cresceu = "sim"
